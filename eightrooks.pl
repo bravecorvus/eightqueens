@@ -7,10 +7,16 @@ solution([X/Y|Others]) :-
 
 noattack(_,[]).
 noattack(X/Y, [X1/Y1|Others]):-
-	%% X < X1,
+	% X < X1,
     Y =\= Y1,
     noattack(X/Y, Others).
 
 
 template([1/Y1, 2/Y2, 3/Y3, 4/Y4, 5/Y5, 6/Y6, 7/Y7, 8/Y8]).
-%% template(A), solution(A).
+% template(A), solution(A).
+
+main :-
+    open('rooks.out',write,ID),
+    (   ( template(X), solution(X), write(ID,X), nl(ID), fail )
+       ; close(ID)
+    ).

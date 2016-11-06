@@ -17,6 +17,8 @@ template([1/Y1, 2/Y2, 3/Y3, 4/Y4, 5/Y5, 6/Y6, 7/Y7, 8/Y8]).
 %% template(A), solution(A).
 
 
-%% solution([1/3,2/5,3/2,4/8,5/6,6/4,7/7,8/1]).
-%% solution([1/3,2/5,3/2,4/8,5/6,6/4,7/7,8/8]).
-%% solution([7/3,7/5,7/2,7/8,7/6,7/4,7/7,7/1]).
+main :-
+    open('queens.out',write,ID),
+    (   ( template(X), solution(X), write(ID,X), nl(ID), fail )
+      ; close(ID)
+    ).
